@@ -1,0 +1,65 @@
+<첫번째 함수>
+1. 입력수가 몇 자리로 구성되었는지 판단
+   - 문자열의 장점을 이용
+   - 숫자를 문자열로 변환(숫자열로 변환)
+     String input = ""+ inputData; 
+   - 숫자열의 크기
+     input.lenth()   
+   
+2. 각 자리수를 곱하고 더하는 과정
+   - 반복문 이용
+   - int num = input.lenth()만큼 반복하고 자리수 곱하고 더하기
+     for(int i = 0 ; i < num ; i++) {
+		checkNum += Character.getNumericValue(input.charAt(i)) * (num -i);
+	}
+	- 래퍼 클래스 Character에서 제공하는 getNumericValue() 함수 
+
+3. 곱셈 연산의 합을 자리수로 나누어 몫/나머지 찾기
+   - 전체 곱셈 연산의 합 / 자리수
+    if(checkNum % num == 0) {
+			checkNum = checkNum / num;
+	} else {
+			checkNum = checkNum % num;
+	}
+
+
+
+<두번째 함수>
+1. 체크수가 1자리수인지 2자리 수인지 판단
+   - 문자열의 장점을 이용
+   - 체크수를 문자열로 변환(숫자열로 변환)
+   - 숫자열의 자리수 length()
+     
+    
+2. 체크수가 2자리라면 큰 수와 작은 수 판단
+3. 입력수와 체크수를 이용하여 새로운 수 생성
+   - 2자리이면 크고 작은 값 위치 판정 
+     - 새로운 문자열 만들기
+   - 1자리이면 크에 추가
+     - 새로운 문자열 만들기
+
+        String strTmp = ""+inputData;
+		String checkStr = ""+checkNum;
+		int strCnt = checkStr.length();
+		
+		if (strCnt > 1){
+			if (checkStr.charAt(0) > checkStr.charAt(1)){				
+				strTmp = checkStr.charAt(0) + strTmp + checkStr.charAt(1);				
+			}else if(checkStr.charAt(0) < checkStr.charAt(1)){
+				strTmp = checkStr.charAt(1) + strTmp + checkStr.charAt(0);
+			}else{
+				strTmp = checkStr.charAt(0) + strTmp + checkStr.charAt(0);
+			}			
+		}
+		else{
+			strTmp = strTmp+checkNum;				
+		}
+		
+		newNum = Integer.parseInt(strTmp);
+		
+		
+		
+		
+		
+		
+		

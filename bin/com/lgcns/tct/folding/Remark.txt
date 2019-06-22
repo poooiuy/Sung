@@ -1,0 +1,109 @@
+<첫번째 함수>
+1. 6이상 수를 5로 나머지 연산
+
+   - 이차원 배열 순회할 중첩 반복문
+   - 조건문으로 6이상 값 찾기
+     5로 나눈 나머지 값으로 채우기
+     
+     for(int i = 0 ; i < 배열크기 ; i++) {	
+		for(int j = 0 ; j < 배열크기 ; j++) {
+			if (배열명[i][j] > 5)
+			    배열명[i][j] % 5
+		}
+	 }
+
+
+
+<두번째 함수>
+1. 이차원 배열 가로 방향으로 접으며 더하기
+   - 매개변수 iniArr[][]
+   - 행의 크기를 고려하여 2차원 배열 생성 
+   - 더해져야 하는 인덱스 규칙 찾기
+   
+   int[][] foldingArr = new int[iniArr.length / 2][iniArr[0].length];
+   
+   for(int i = 0 ; i < foldingArr.length ; i++) {		
+		for(int j = 0 ; j < foldingArr[i].length ; j++) {
+			int tmp = iniArr[i][j] + iniArr[iniArr.length - i- 1][j];
+			foldingArr[i][j] = tmp;
+		}
+	}
+		
+
+2. 이차원 배열 세로 방향으로 접으며 곱하기
+   - 매개변수 iniArr[][]
+   - 행의 크기를 고려하여 2차원 배열 생성 
+   - 더해져야 하는 인덱스 규칙 찾기
+
+     int[][] foldingArr2 = new int[foldingArr.length][foldingArr[0].length / 2];;
+	 for(int i = 0 ; i < foldingArr2.length ; i++) {
+		for(int j = 0 ; j < foldingArr2[i].length ; j++) {
+			int tmp = foldingArr[i][j] * foldingArr[i][foldingArr[0].length - j- 1];
+			foldingArr2[i][j] = tmp;
+		}
+	 }
+
+
+<세번째 함수>
+1. 행의 개수와 열의 개수가 짝수일 때 접는 방법
+   - 매개변수 : int[][] foldingArr
+   - lenth로 행과 열의 크기 판단 - 짝수라면
+   - 두번째 함수의 가로방향(합), 세로방향(곱) 접기
+   - 짝수라면 두번째 구현된 함수를 호출하여 이용
+ 
+   
+2. 행의 개수와 열의 개수가 홀수일 때 접는 방법
+   - 매개변수 : int[][] foldingArr
+   - lenth로 행과 열의 크기 판단 - 홀수라면
+   - 중앙의 행과 열을 하나씩 제외시킨 크기의 이차원배열 생성 필요
+   - 중앙 행과 열을 삭제한 후 
+   - 두번째 함수의 가로방향(합), 세로방향(곱) 접기
+   - 짝수 크기의 배열로 만든 후 두번째 함수 호출
+      
+    세번째기능구현 함수(){
+		if(foldingArr.length % 2 != 0) {   //홀수 행렬일때
+			중앙의 행과 열을 하나씩 제외하고 짝수 행렬로 만듬
+			
+		} else {    //짝수 행렬일 때 두 번째 함수 호출
+			arr = getFoldingArr(foldingArr);
+		}
+		
+		if(arr.length > 1 && arr[1].length > 1) {
+			arr = 세번째기능구현 함수(arr);
+		}
+	}
+	
+	
+	//중앙 행과 열 하나씩 제외하고 짝수 배열로 만듬
+	int[][] arr = new int[foldingArr.length - 1][foldingArr[0].length - 1];
+	
+	int x = foldingArr.length / 2; 
+	int k = -1;
+			
+	for(int i = 0 ; i < foldingArr.length ; i++) {		
+		if(i != x) {
+			k++;
+		} 
+		int l = 0;
+		for(int j = 0 ; j < foldingArr[i].length ; j++) {
+					
+			if(i != x && j !=x) {
+				arr[k][l++] = foldingArr[i][j];
+			} 
+					
+		}
+	}	
+	
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

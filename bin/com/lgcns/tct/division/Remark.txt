@@ -1,0 +1,36 @@
+<첫번째 함수>
+1. 숫자를 두 자리식 나누기
+   - 문자열 장점이용 
+   - 숫자를 문자열로 변환
+   - 반복문 횟수 - 1
+   
+2. 나눠진 값 중 0을 1로 치환
+   - 숫자 문자가 0인지 판단
+   - Character.getNumericValue(input.charAt(i))
+   
+3. 두 수의 위치와 크기에 따라 나누기/나머지 연산
+   - 앞 뒤 두 수의 크기 비교하는 조건문
+   - charAt(i) , charAt(i+1) 
+   - 나누기 또는 나머지 연산 수행
+   
+   
+4. 각 자리를 연결한 숫자만들기
+   - 1,2,3 처리된 숫자로 된 문자를 누적하여 더하기
+   - 정수로 변환
+
+
+
+<두번째 함수>
+1. 중복된 숫자는 하나만 남기고 제거
+   - 앞쪽 수 남기고 뒤쪽 수 제거
+   - 문자열 이용
+   - indexOf() 이용하거나 그 이외의 방법
+   String tmp = ""+operationResult;
+   String ret = "";
+   for(int i = 0 ; i < tmp.length() ; i++) {
+	 	char n = tmp.charAt(i);
+		if(ret.indexOf(n) == -1) {
+			ret += Character.getNumericValue(n);  또는
+			ret += n;
+		}
+	}
