@@ -21,6 +21,11 @@ public class ListUtil {
 		Collections.sort(stringList, new AscendingString());
 	}
 	
+	
+	//	List to Array
+	List<String> stringList = new ArrayList<>();
+	String[] strings = stringList.stream().toArray(String[]::new);
+	
 
 
 
