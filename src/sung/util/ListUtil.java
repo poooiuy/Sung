@@ -1,3 +1,10 @@
+/*
+ * 데이터를 순차 처리하는 구조
+ * List에  데이터를 추가한 순서대로 인덱스 번호가 매겨짐
+ * 데이터 중복 허용
+ * 정렬 가능
+ */
+
 package sung.util;
 
 import java.util.ArrayList;
@@ -6,6 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class ListUtil {
+	
 	
 	// 정렬
 	private void order() {
@@ -26,8 +34,6 @@ public class ListUtil {
 	List<String> stringList = new ArrayList<>();
 	String[] strings = stringList.stream().toArray(String[]::new);
 	
-
-
 
 }
 
