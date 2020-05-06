@@ -1,7 +1,9 @@
 package sung.util;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArrayUtil {
 	
@@ -9,6 +11,15 @@ public class ArrayUtil {
 	String[] strArr = new String[] {"1","2","3"};
 	List<String> strList = Arrays.asList(strArr);
 	
+	int[] intArr2 = new int[] {1,2,3};
+	List<Integer> list = Arrays.stream(intArr2).boxed().collect(Collectors.toList());
+	
+	public void convertIntArrToList() {
+		List<Integer> intList = new ArrayList<Integer>(intArr2.length);	
+		for (int i : intArr2) {
+		    intList.add(i);
+		}
+	}
 	
 	//	Copy
 	public void copyArray() {
@@ -26,7 +37,7 @@ public class ArrayUtil {
 	
 	//	Array에 해당 값이 있는지 확인
 	public boolean isHasValue(String[] targetArr, String value) {
-		return Arrays.stream(strArr).anyMatch(value::equals);
+		return Arrays.stream(targetArr).anyMatch(value::equals);
 	}
 
 
